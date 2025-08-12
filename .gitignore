@@ -114,3 +114,8 @@ noresults.txt
 
 #PDM
 .pdm-python
+
+
+# nix
+.envrc
+result
