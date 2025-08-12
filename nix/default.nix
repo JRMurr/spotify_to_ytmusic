@@ -22,6 +22,7 @@ python3Packages.buildPythonApplication {
       python_files
       ../pdm.lock
       ../pyproject.toml
+      ../spotify_to_ytmusic/settings.ini.example
     ];
   };
 
