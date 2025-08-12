@@ -15,19 +15,21 @@
       system:
       let
         pkgs = import nixpkgs { inherit system; };
+
+        utils = pkgs.callPackage ./nix { };
       in
       {
         formatter = pkgs.nixpkgs-fmt;
         devShells = {
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
-
+              utils.python_env
             ];
           };
         };
 
         packages = {
-          default = pkgs.callPackage ./nix { };
+          default = utils.app;
         };
       }
     );
