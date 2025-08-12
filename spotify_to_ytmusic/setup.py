@@ -17,11 +17,10 @@ from spotify_to_ytmusic.utils.browser import has_browser
 
 def setup(file: Path | None = None):
     if file:
-        shutil.copy(file, DEFAULT_PATH)
-        return
+        shutil.copyfile(file, DEFAULT_PATH)
+    elif not DEFAULT_PATH.is_file():
+        shutil.copyfile(EXAMPLE_PATH, DEFAULT_PATH)
 
-    if not DEFAULT_PATH.is_file():
-        shutil.copy(EXAMPLE_PATH, DEFAULT_PATH)
     choice = input(
         "Choose which API to set up\n(1) Spotify\n(2) Youtube (Browser)(recommended)\n(3) YouTube (oAuth)"
         "\n(4) both (Spotify + YouTube (oAuth)\n"

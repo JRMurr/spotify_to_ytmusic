@@ -34,5 +34,6 @@ class Settings:
         self.config.set(section, key, value)
 
     def save(self):
+        self.filepath.parent.mkdir(parents=True, exist_ok=True)
         with open(self.filepath, "w") as f:
             self.config.write(f)
